@@ -460,6 +460,10 @@ class TimelineControl extends React.Component<{ chart: ChartConfig }> {
                     onStartDrag={this.onTimelineStart}
                     onStopDrag={this.onTimelineStop}
                     singleYearPlay={true}
+                    disablePlay={
+                        // only show play button when looking at a single year, thus showing a bar chart
+                        chart.lineChart.startYear !== chart.lineChart.endYear
+                    }
                 />
             )
         } else if (chart.isSlopeChart) {
